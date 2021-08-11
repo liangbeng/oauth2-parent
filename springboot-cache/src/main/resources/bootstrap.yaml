@@ -1,0 +1,30 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /cache-service
+spring:
+  application:
+    name: springboot-cache-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 2b03f1b6-89dd-4783-be93-6dd5b31bff56
+        group: DEFAULT_GROUP
+        file-extension: yaml
+        prefix: nacos-config
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: password
+logging:
+  level:
+    com:
+      ben:
+        springbootcache:
+          mapper: debug

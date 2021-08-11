@@ -5,7 +5,8 @@ spring:
     name: gateway-service
   cloud:
     nacos:
-      server-addr: 127.0.0.1:8848
+      discovery:
+        server-addr: 127.0.0.1:8848
     gateway:
       discovery:
         locator:
@@ -15,5 +16,11 @@ spring:
           uri: lb://springboot-cache-service
           predicates:
             - Path=/api/cache-service/**
+          filters:
+            - StripPrefix=1
+        - id: user-center-router
+          uri: lb://user-center-service
+          predicates:
+            - Path=/api/user-center/**
           filters:
             - StripPrefix=1

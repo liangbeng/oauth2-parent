@@ -53,7 +53,7 @@ public class ResourceServerConfigurer extends ResourceServerConfigurerAdapter {
         //自定义资源访问认证异常，没有token，或token错误，使用MyAuthenticationEntryPoint
         resources.authenticationEntryPoint(new AuthExceptionEntryPoint())
         .accessDeniedHandler(new CustomAccessDeniedHandler())
-        .resourceId("oauth2-resource")
+        .resourceId("oauth2_resource")
         .tokenStore(tokenStore);
     }
 
