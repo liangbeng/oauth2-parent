@@ -26,7 +26,6 @@
 		<fastjson.version>1.2.47</fastjson.version>
 		<commons-collections4.version>4.2</commons-collections4.version>
 		<security.version>2.2.13.RELEASE</security.version>
-		<lombok.version>1.18.12</lombok.version>
 		<hutool.veriosn>5.3.7</hutool.veriosn>
 		<oauth2.version>2.3.8.RELEASE</oauth2.version>
 		<junit.version>4.13.2</junit.version>
@@ -56,7 +55,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
 		</dependency>
 
 		<dependency>
@@ -145,9 +143,6 @@
 			<version>${hutool.veriosn}</version>
 		</dependency>
 
-
-
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -155,8 +150,10 @@
 			<scope>test</scope>
 		</dependency>
 
-
-
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+		</dependency>
 
 	</dependencies>
 

@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Result {
 
@@ -36,8 +36,7 @@ public class Result {
     }
 
     public static Result buildSucess(Object data) {
-        Result result= new Result(true, HttpStatus.OK.value(),
-                HttpStatus.OK.getReasonPhrase(),data);
+        Result result= new Result(true, HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(),data);
         log.info("接口成功返回:{}",result);
         return result;
     }
