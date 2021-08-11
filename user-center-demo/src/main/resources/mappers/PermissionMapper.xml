@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.PermissionMapper">
+    <resultMap id="BaseResultMap" type="Permission">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="parentId" jdbcType="INTEGER" property="parentid" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="css" jdbcType="VARCHAR" property="css" />
+        <result column="href" jdbcType="VARCHAR" property="href" />
+        <result column="type" jdbcType="BOOLEAN" property="type" />
+        <result column="permission" jdbcType="VARCHAR" property="permission" />
+        <result column="sort" jdbcType="INTEGER" property="sort" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, parentId, name, css, href, type, permission, sort
+    </sql>
+
+    <select id="selectPermissionByUserId" resultMap="BaseResultMap">
+        SELECT
+            permission
+        FROM
+            sys_permission
+        INNER JOIN sys_role_permission ON sys_permission.id = sys_role_permission.permissionId
+        INNER JOIN sys_role ON sys_role_permission.roleId = sys_role.id
+        INNER JOIN sys_role_user ON sys_role.id = sys_role_user.roleId
+        INNER JOIN sys_user ON sys_role_user.userId = sys_user.id
+        WHERE sys_user.id = #{userId,jdbcType=INTEGER}
+    </select>
+
+</mapper>

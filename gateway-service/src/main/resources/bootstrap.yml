@@ -1,0 +1,19 @@
+server:
+  port: 8092
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: cache-service-router
+          uri: lb://springboot-cache-service
+          predicates:
+            - Path=/api/cache-service/**
+          filters:
+            - StripPrefix=1
