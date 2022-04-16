@@ -1,0 +1,22 @@
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.example.demo.domain
+server:
+  port: 8094
+  servlet:
+    context-path: /user-center
+spring:
+  application:
+    name: user-center-service
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/user-center?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+      username: root
+    password: password
+  redis:
+    host: 127.0.0.1
+    port: 6379
